@@ -1,0 +1,868 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f5c400">
+<meta name="description" content="YALO — Web3 Growth, Creator Partnerships and Digital Solutions.">
+<title>YALO — Build What's Next</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+ --yellow:#f5c400;
+ --black:#101010;
+ --white:#ffffff;
+ --gray:#777;
+ --bg:#f7f7f4;
+ --font:'DM Sans',sans-serif;
+ --display:'Space Grotesk',sans-serif;
+}
+
+* {box-sizing:border-box;margin:0;padding:0}
+html {scroll-behavior:smooth;scroll-padding-top:85px}
+body {background:var(--bg);color:var(--black);font-family:var(--font)}
+a {text-decoration:none;color:inherit}
+button {font-family:inherit;cursor:pointer}
+
+.announcement {
+ background:var(--yellow);
+ text-align:center;
+ padding:10px;
+ font-size:11px;
+ font-weight:800;
+}
+
+.announcement a {text-decoration:underline;margin-left:8px}
+
+header {
+ height:75px;
+ padding:0 7%;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ position:sticky;
+ top:0;
+ z-index:100;
+ background:#f7f7f4f5;
+ backdrop-filter:blur(15px);
+ border-bottom:1px solid #ddd;
+}
+
+.logo {
+ display:flex;
+ align-items:center;
+ gap:10px;
+ font:700 25px var(--display);
+}
+
+.logo-icon {
+ width:36px;
+ height:36px;
+ background:var(--yellow);
+ border-radius:9px;
+ display:grid;
+ place-items:center;
+ font-size:29px;
+}
+
+nav {display:flex;align-items:center;gap:30px}
+nav a {font-size:13px;font-weight:700}
+nav a:hover {color:#bd9700}
+
+.nav-button {
+ background:var(--black);
+ color:white;
+ padding:13px 19px;
+ border-radius:4px;
+}
+
+.menu {
+ display:none;
+ background:none;
+ border:0;
+ font-size:27px;
+}
+
+.container {width:86%;max-width:1150px;margin:auto}
+
+.hero {
+ min-height:610px;
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ align-items:center;
+ gap:35px;
+ padding-top:65px;
+ padding-bottom:65px;
+}
+
+.eyebrow {
+ font-size:10px;
+ font-weight:800;
+ letter-spacing:2px;
+ color:#997800;
+}
+
+h1,h2,h3 {font-family:var(--display);letter-spacing:-2px}
+
+h1 {
+ font-size:clamp(65px,9vw,110px);
+ line-height:.95;
+ margin:25px 0;
+}
+
+.yellow {color:#d4a900}
+
+.hero p {
+ max-width:460px;
+ color:#666;
+ line-height:1.8;
+ font-size:16px;
+}
+
+.actions {
+ display:flex;
+ gap:15px;
+ flex-wrap:wrap;
+ margin-top:30px;
+}
+
+.btn {
+ display:inline-block;
+ padding:16px 22px;
+ border-radius:4px;
+ font-size:12px;
+ font-weight:800;
+ transition:.2s;
+}
+
+.btn:hover {transform:translateY(-3px)}
+.dark {background:#111;color:white}
+.gold {background:var(--yellow);color:#111}
+.outline {border:1px solid #555;color:white}
+
+.hero-art {
+ min-height:390px;
+ display:grid;
+ place-items:center;
+ position:relative;
+}
+
+.orbit {
+ width:350px;
+ height:350px;
+ border:1px solid #ddd;
+ border-radius:50%;
+ position:absolute;
+}
+
+.orbit.two {
+ width:270px;
+ height:400px;
+ transform:rotate(45deg);
+}
+
+.hero-symbol {
+ width:190px;
+ height:190px;
+ background:var(--yellow);
+ border-radius:45%;
+ display:grid;
+ place-items:center;
+ font:700 145px var(--display);
+ box-shadow:18px 20px 0 #111;
+ z-index:2;
+ transform:rotate(-8deg);
+}
+
+.art-label {
+ position:absolute;
+ background:#111;
+ color:white;
+ padding:13px 18px;
+ font-size:10px;
+ font-weight:800;
+ z-index:3;
+}
+
+.label-one {top:45px;right:5px}
+.label-two {bottom:45px;left:0;background:var(--yellow);color:#111}
+
+.ticker {
+ background:var(--yellow);
+ padding:17px 0;
+ overflow:hidden;
+ white-space:nowrap;
+ font:800 12px var(--display);
+ letter-spacing:2px;
+}
+
+.ticker div {
+ width:max-content;
+ animation:move 25s linear infinite;
+}
+
+.ticker span {margin:0 25px}
+
+@keyframes move {
+ to {transform:translateX(-30%)}
+}
+
+.section {padding:110px 0}
+
+.section-title {
+ font-size:clamp(40px,5vw,65px);
+ line-height:1.05;
+ margin:25px 0;
+}
+
+.about-grid {
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:80px;
+ align-items:center;
+}
+
+.about-grid p {
+ color:#666;
+ line-height:1.9;
+ font-size:14px;
+}
+
+.services-heading {
+ display:flex;
+ justify-content:space-between;
+ align-items:end;
+ gap:30px;
+ margin-bottom:40px;
+}
+
+.services-heading p {
+ max-width:350px;
+ color:#777;
+ line-height:1.8;
+ font-size:13px;
+}
+
+.service-grid {
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:14px;
+}
+
+.service-card {
+ background:white;
+ padding:25px 20px;
+ min-height:280px;
+ border:1px solid #eee;
+ display:flex;
+ flex-direction:column;
+ transition:.3s;
+}
+
+.service-card:hover {
+ transform:translateY(-6px);
+ box-shadow:0 15px 35px #00000010;
+}
+
+.service-card.feature {
+ background:var(--yellow);
+ border-color:var(--yellow);
+}
+
+.number {font-size:11px;font-weight:800}
+.service-icon {font-size:25px;margin:25px 0}
+.service-card h3 {font-size:23px;line-height:1.15}
+.service-card p {
+ color:#777;
+ font-size:11px;
+ line-height:1.8;
+ margin:15px 0;
+}
+
+.service-card a {
+ margin-top:auto;
+ font-size:11px;
+ font-weight:800;
+}
+
+.market {
+ background:#111;
+ color:white;
+}
+
+.market-grid {
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:60px;
+ align-items:center;
+}
+
+.market p {
+ color:#aaa;
+ font-size:13px;
+ line-height:1.9;
+ margin:20px 0;
+ max-width:470px;
+}
+
+.network {
+ min-height:330px;
+ display:grid;
+ place-items:center;
+ position:relative;
+}
+
+.network-center {
+ width:100px;
+ height:100px;
+ border-radius:25px;
+ background:var(--yellow);
+ color:#111;
+ display:grid;
+ place-items:center;
+ font:700 80px var(--display);
+ box-shadow:0 0 0 15px #f5c40020;
+}
+
+.node {
+ position:absolute;
+ background:#222;
+ border:1px solid #555;
+ padding:13px;
+ font-size:10px;
+ font-weight:800;
+}
+
+.node.one {top:25px;left:10%}
+.node.two {right:0;top:45%}
+.node.three {bottom:20px;left:20%}
+
+.steps {
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:25px;
+ margin-top:50px;
+}
+
+.step {
+ border-top:1px solid #ddd;
+ padding-top:20px;
+}
+
+.step span {color:#bd9700;font-weight:800;font-size:12px}
+.step h3 {font-size:20px;margin:22px 0 10px}
+.step p {font-size:12px;color:#777;line-height:1.8}
+
+.ai-panel {
+ background:var(--yellow);
+ padding:65px 7%;
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ align-items:center;
+ gap:30px;
+}
+
+.ai-panel p {
+ max-width:400px;
+ font-size:13px;
+ line-height:1.8;
+ margin:20px 0;
+}
+
+.ai-art {
+ height:240px;
+ display:grid;
+ place-items:center;
+}
+
+.ai-logo {
+ width:125px;
+ height:125px;
+ background:#111;
+ color:var(--yellow);
+ display:grid;
+ place-items:center;
+ border-radius:30px;
+ font:700 90px var(--display);
+ box-shadow:15px 15px 0 #0002;
+}
+
+.values-grid {
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:70px;
+}
+
+.value {
+ padding:18px 0;
+ border-bottom:1px solid #ddd;
+ display:flex;
+ gap:25px;
+ font-size:13px;
+ font-weight:700;
+}
+
+.value b {color:#bd9700}
+
+.contact {
+ background:var(--yellow);
+ padding:85px 0;
+}
+
+.contact h2 {
+ font-size:clamp(50px,7vw,80px);
+ line-height:1;
+ margin:25px 0;
+}
+
+.contact p {
+ font-size:13px;
+ margin-bottom:25px;
+}
+
+footer {
+ background:#111;
+ color:white;
+ padding:50px 7% 25px;
+}
+
+.footer-top {
+ display:flex;
+ justify-content:space-between;
+ gap:25px;
+ flex-wrap:wrap;
+ padding-bottom:45px;
+}
+
+footer p {color:#888;font-size:12px;line-height:1.8}
+.footer-links {display:flex;gap:20px;flex-wrap:wrap}
+.footer-links a {font-size:11px;color:#aaa}
+
+.footer-bottom {
+ border-top:1px solid #333;
+ padding-top:20px;
+ display:flex;
+ justify-content:space-between;
+ color:#777;
+ font-size:10px;
+}
+
+@media(max-width:850px) {
+ .hero {gap:10px}
+ .service-grid {grid-template-columns:repeat(2,1fr)}
+ nav {gap:15px}
+}
+
+@media(max-width:600px) {
+ header {height:65px;padding:0 6%}
+ .menu {display:block}
+ nav {
+  display:none;
+  position:absolute;
+  top:65px;
+  left:0;
+  width:100%;
+  background:#f7f7f4;
+  padding:20px 6%;
+  flex-direction:column;
+  align-items:stretch;
+  gap:0;
+ }
+ nav.open {display:flex}
+ nav a {padding:15px 0;border-bottom:1px solid #ddd}
+ nav .nav-button {text-align:center;margin-top:12px}
+ .container {width:89%}
+ .hero {
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  padding-top:65px;
+ }
+ h1 {font-size:75px}
+ .hero p {font-size:14px}
+ .hero-art {
+  width:100%;
+  min-height:320px;
+ }
+ .hero-symbol {width:155px;height:155px;font-size:115px}
+ .orbit {width:280px;height:280px}
+ .orbit.two {width:230px;height:330px}
+ .label-one {top:20px}
+ .label-two {bottom:20px}
+ .section {padding:75px 0}
+ .about-grid,.market-grid,.values-grid {
+  grid-template-columns:1fr;
+  gap:30px;
+ }
+ .services-heading {display:block}
+ .services-heading p {margin-top:20px}
+ .service-grid {grid-template-columns:1fr 1fr;gap:9px}
+ .service-card {padding:17px 13px;min-height:265px}
+ .service-card h3 {font-size:20px}
+ .service-card p {font-size:10px}
+ .network {min-height:270px}
+ .steps {grid-template-columns:1fr 1fr;gap:25px 15px}
+ .ai-panel {grid-template-columns:1fr;padding:40px 7%}
+ .ai-art {height:190px}
+ .contact {padding:65px 0}
+ .footer-bottom {gap:15px;font-size:9px}
+}
+
+@media(max-width:360px) {
+ h1 {font-size:64px}
+ .service-card h3 {font-size:18px}
+ .service-grid {gap:7px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="announcement">
+ YALO IS BUILDING WHAT'S NEXT
+ <a href="#contact">Work with us ↗</a>
+</div>
+
+<header>
+ <a href="#home" class="logo">
+  <span class="logo-icon">y</span>
+  YALO.
+ </a>
+
+ <button class="menu" id="menu" aria-label="Open menu">☰</button>
+
+ <nav id="nav">
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#marketplace">Marketplace</a>
+  <a href="#ai">AI Agent</a>
+  <a href="#contact" class="nav-button">Let's Talk ↗</a>
+ </nav>
+</header>
+
+<main>
+
+<section class="hero container" id="home">
+ <div>
+  <div class="eyebrow">WEB3 · GROWTH · PARTNERSHIPS</div>
+
+  <h1>Build What's<br><span class="yellow">Next.</span></h1>
+
+  <p>
+   We connect ambitious brands with creators,
+   communities and digital opportunities that
+   move the Web3 world forward.
+  </p>
+
+  <div class="actions">
+   <a class="btn dark" href="#contact">Start a Project ↗</a>
+   <a class="btn" href="#services">Explore Services ↓</a>
+  </div>
+ </div>
+
+ <div class="hero-art">
+  <div class="orbit"></div>
+  <div class="orbit two"></div>
+  <div class="hero-symbol">y</div>
+  <div class="art-label label-one">WEB3 GROWTH ↗</div>
+  <div class="art-label label-two">MAKE IT MATTER.</div>
+ </div>
+</section>
+
+<div class="ticker">
+ <div>
+ STRATEGY <span>✳</span> COMMUNITY <span>✳</span>
+ CREATOR PARTNERSHIPS <span>✳</span>
+ WEB3 GROWTH <span>✳</span>
+ DIGITAL SOLUTIONS <span>✳</span>
+ STRATEGY <span>✳</span>
+ </div>
+</div>
+
+<section class="section container" id="about">
+ <div class="eyebrow">01 / ABOUT YALO</div>
+
+ <div class="about-grid">
+  <h2 class="section-title">
+   Good Connections Create
+   <span class="yellow">Real Momentum.</span>
+  </h2>
+
+  <div>
+   <p>
+    YALO is a growth and partnership platform
+    built for the digital economy.
+
+    We help Web3 projects, brands and companies
+    discover creators, reach communities and
+    build meaningful partnerships.
+
+    Our mission is to make collaboration easier
+    and create opportunities for everyone.
+   </p>
+   <br>
+   <a href="#contact"><b>Discover YALO ↗</b></a>
+  </div>
+ </div>
+</section>
+
+<section class="section container" id="services">
+ <div class="eyebrow">02 / OUR SERVICES</div>
+
+ <div class="services-heading">
+  <h2 class="section-title">
+   One Partner.<br>
+   More Ways Forward.
+  </h2>
+  <p>
+   Everything you need to build visibility,
+   connect with the right people and grow
+   your project.
+  </p>
+ </div>
+
+ <div class="service-grid">
+
+  <article class="service-card feature">
+   <span class="number">01 / PARTNERSHIPS</span>
+   <span class="service-icon">↗</span>
+   <h3>Creator & KOL Partnerships</h3>
+   <p>
+    Connect with influencers, creators and
+    voices that match your project.
+   </p>
+   <a href="#contact">Learn More ↗</a>
+  </article>
+
+  <article class="service-card">
+   <span class="number">02 / CAMPAIGNS</span>
+   <span class="service-icon">⌘</span>
+   <h3>Growth Campaigns</h3>
+   <p>
+    Strategic campaigns designed to
+    increase awareness and visibility.
+   </p>
+   <a href="#contact">Learn More ↗</a>
+  </article>
+
+  <article class="service-card">
+   <span class="number">03 / COMMUNITY</span>
+   <span class="service-icon">◎</span>
+   <h3>Community Development</h3>
+   <p>
+    Build active communities through
+    engagement and communication.
+   </p>
+   <a href="#contact">Learn More ↗</a>
+  </article>
+
+  <article class="service-card">
+   <span class="number">04 / DIGITAL</span>
+   <span class="service-icon">✳</span>
+   <h3>Digital & Web3 Solutions</h3>
+   <p>
+    Practical digital services and
+    Web3-focused support for projects.
+   </p>
+   <a href="#contact">Learn More ↗</a>
+  </article>
+
+ </div>
+</section>
+
+<section class="section market" id="marketplace">
+ <div class="container market-grid">
+
+  <div>
+   <div class="eyebrow">03 / YALO MARKETPLACE</div>
+
+   <h2 class="section-title">
+    The Right People.
+    <span class="yellow">The Right Opportunity.</span>
+   </h2>
+
+   <p>
+    YALO Marketplace connects companies,
+    brands and independent creators.
+
+    Companies can discover talent and
+    request campaigns. Creators can showcase
+    their work and connect with opportunities.
+   </p>
+
+   <div class="actions">
+    <a href="#contact" class="btn gold">I'm a Company ↗</a>
+    <a href="#contact" class="btn outline">I'm a Creator ↗</a>
+   </div>
+  </div>
+
+  <div class="network">
+   <div class="node one">BRANDS</div>
+   <div class="node two">CREATORS</div>
+   <div class="node three">COMMUNITY</div>
+   <div class="network-center">y</div>
+  </div>
+
+ </div>
+</section>
+
+<section class="section container">
+ <div class="eyebrow">04 / HOW IT WORKS</div>
+
+ <h2 class="section-title">
+  Simple by Design.<br>
+  <span style="color:#aaa">Powerful in Practice.</span>
+ </h2>
+
+ <div class="steps">
+
+  <div class="step">
+   <span>01</span>
+   <h3>Tell Us Your Goal</h3>
+   <p>Share your project and what you want to achieve.</p>
+  </div>
+
+  <div class="step">
+   <span>02</span>
+   <h3>We Find the Fit</h3>
+   <p>Discover the right creators and opportunities.</p>
+  </div>
+
+  <div class="step">
+   <span>03</span>
+   <h3>Make It Happen</h3>
+   <p>Coordinate your campaign and partnership.</p>
+  </div>
+
+  <div class="step">
+   <span>04</span>
+   <h3>Grow Together</h3>
+   <p>Build lasting relationships and new opportunities.</p>
+  </div>
+
+ </div>
+</section>
+
+<section class="section container" id="ai">
+ <div class="ai-panel">
+
+  <div>
+   <div class="eyebrow">05 / YALO AI AGENT</div>
+
+   <h2 class="section-title">
+    A Smarter Way
+    to Move Forward.
+   </h2>
+
+   <p>
+    We are developing AI-powered tools to
+    improve discovery, campaign planning
+    and partnership workflows.
+
+    The future of collaboration starts here.
+   </p>
+
+   <a href="#contact" class="btn dark">Stay Updated ↗</a>
+  </div>
+
+  <div class="ai-art">
+   <div class="ai-logo">y</div>
+  </div>
+
+ </div>
+</section>
+
+<section class="section container">
+ <div class="eyebrow">06 / OUR PRINCIPLES</div>
+
+ <div class="values-grid">
+  <h2 class="section-title">
+   Built on Trust.<br>
+   Driven by Possibility.
+  </h2>
+
+  <div>
+   <div class="value"><b>01</b> People Before Numbers</div>
+   <div class="value"><b>02</b> Honest Communication</div>
+   <div class="value"><b>03</b> Long-Term Thinking</div>
+   <div class="value"><b>04</b> Progress Through Collaboration</div>
+  </div>
+ </div>
+</section>
+
+<section class="contact" id="contact">
+ <div class="container">
+  <div class="eyebrow">07 / LET'S BUILD</div>
+
+  <h2>
+   Your Next Move<br>
+   Starts With <span style="color:white">Hello.</span>
+  </h2>
+
+  <p>
+   Have a project, campaign or partnership in mind?
+   We would love to hear from you.
+  </p>
+
+  <a href="https://x.com/0xyalo" target="_blank" rel="noopener" class="btn dark">
+   Contact YALO ↗
+  </a>
+ </div>
+</section>
+
+</main>
+
+<footer>
+ <div class="footer-top">
+
+  <div>
+   <a href="#home" class="logo">
+    <span class="logo-icon">y</span> YALO.
+   </a>
+   <br>
+   <p>Connecting people, projects<br>and possibilities.</p>
+  </div>
+
+  <div class="footer-links">
+   <a href="#home">Home</a>
+   <a href="#about">About</a>
+   <a href="#services">Services</a>
+   <a href="#marketplace">Marketplace</a>
+   <a href="#contact">Contact</a>
+  </div>
+
+ </div>
+
+ <div class="footer-bottom">
+  <span>© <span id="year"></span> YALO. All rights reserved.</span>
+  <span>BUILT FOR WHAT'S NEXT ✳</span>
+ </div>
+</footer>
+
+<script>
+const menu = document.getElementById('menu');
+const nav = document.getElementById('nav');
+
+menu.addEventListener('click', () => {
+ nav.classList.toggle('open');
+ menu.textContent = nav.classList.contains('open') ? '✕' : '☰';
+});
+
+document.querySelectorAll('#nav a').forEach(link => {
+ link.addEventListener('click', () => {
+  nav.classList.remove('open');
+  menu.textContent = '☰';
+ });
+});
+
+document.getElementById('year').textContent =
+ new Date().getFullYear();
+</script>
+
+</body>
+</html>
