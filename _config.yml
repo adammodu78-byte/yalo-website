@@ -1,0 +1,9 @@
+title: YALO
+description: YALO — Digital Innovation and AI-Powered Solutions
+url: "https://0xyalo.xyz"
+baseurl: ""
+
+theme: jekyll-theme-cayman
+
+plugins:
+  - jekyll-seo-tag
